@@ -2,7 +2,7 @@ def caesar_cipher(input_text, key, operation):
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
     if key < 1 or key > 25:
-        return 'Key must be between 1 and 25'
+        return 'Key must be between 1 and 25.'
 
     modified_text = ''.join(input_text.split()).upper()
     result = ''
@@ -18,13 +18,13 @@ def caesar_cipher(input_text, key, operation):
                 return 'Invalid operation. Operation must be E (encrytpion) or D (decryption)'
             result += alphabet[new_index]
         else:
-            return 'Only English alphabet characters (A-Z) are allowed'
+            return 'Only English alphabet characters (A-Z) are allowed.'
 
     return result
 
 
 operation = input(
-    'Enter operation (E - encrypt/D - decrypt): ').strip().upper()
+    'Enter the type of operation:\nType "E" - encrypt\nType "D" - decrypt\nInput:').strip().upper()
 key_input = input('Enter the key (1-25): ').strip()
 
 try:
