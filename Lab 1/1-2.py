@@ -32,7 +32,7 @@ def caesar_cipher(input_text, key1, key2, operation):
 
 
 operation = input(
-    'Enter the type of operation\n Type "E" - encrypt\nType "D" - decrypt): ').strip().upper()
+    'Enter the type of operation:\nType "E" - encrypt\nType "D" - decrypt\nInput:').strip().upper()
 
 key1_input = input('Enter the key (Integer value between 1-25): ').strip()
 key2 = input(
