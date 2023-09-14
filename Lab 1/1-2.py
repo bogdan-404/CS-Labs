@@ -3,7 +3,7 @@ def generate_modified_alphabet(key2):
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     modified_alphabet = key2 + \
         ''.join(filter(lambda char: char not in key2, alphabet))
-
+    print(f'Modified alphabet: {modified_alphabet}')
     return modified_alphabet
 
 
