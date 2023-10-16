@@ -29,7 +29,9 @@ def vigenere_decrypt(ciphertext, key):
     for i in range(len(ciphertext)):
         char_index = alphabet.index(ciphertext[i])
         key_index = alphabet.index(key[i % key_length])
-        decrypted_char = alphabet[(char_index - key_index) % alphabet_length]
+        decrypted_char = alphabet[
+            (char_index - key_index + alphabet_length) % alphabet_length
+        ]
         decrypted_text += decrypted_char
     return decrypted_text
 
@@ -42,7 +44,7 @@ if __name__ == "__main__":
         key = sanitize_input(input("Enter the key (min 7 characters): "))
         if len(key) < 7:
             print("Key must be at least 7 characters long.")
-        elif choice == "encrypt" or "e":
+        elif choice == "encrypt" or choice == "e":
             message = sanitize_input(input("Enter the message: "))
             print("Encrypted message:", vigenere_encrypt(message, key))
         else:
