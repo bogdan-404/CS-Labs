@@ -65,6 +65,10 @@ def apply_expansion(input_bits, expansion_table):
     return expanded
 
 
+def xor_bits(bit_string1, bit_string2):
+    return "".join(str(int(b1) ^ int(b2)) for b1, b2 in zip(bit_string1, bit_string2))
+
+
 def get_user_input():
     K_hex = input("Enter the 48-bit subkey (Ki) in hex: ")
     R_prev_hex = input("Enter the 32-bit block (Ri-1) from the previous round in hex: ")
@@ -99,9 +103,12 @@ def main():
 
     expanded_R = apply_expansion(R_prev_bin, EXPANSION_TABLE)
 
-    print("\n6-bit blocks after expansion (B1, B2, B3, B4, B5, B6, B7, B8):")
+    xor_output = xor_bits(expanded_R, K_bin)
+    print(f"\nResult of XOR between expanded R and K: {xor_output}")
+
+    print("\n6-bit blocks after expansion and XOR (B1, B2, B3, B4, B5, B6, B7, B8):")
     for i in range(8):
-        B = expanded_R[i * 6 : (i + 1) * 6]
+        B = xor_output[i * 6 : (i + 1) * 6]
         print(f"B{i+1}: {B}")
 
 
